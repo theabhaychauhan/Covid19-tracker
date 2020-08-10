@@ -4,13 +4,31 @@
 
 <head>
     <title>Covid 19 Tracker</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h1>Covid-19 Tracker</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4" th:text="${TotalCases}"></h1>
+        <strong>Total number of Covid Cases WorldWide</strong>
+    </div>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
-
-<p th:text="${LocationStats}"></p>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Confirmed Covid-19 Cases</th>
+        </tr>
+        <tr th:each="LocationStat : ${LocationStats}">
+            <td th:text="${LocationStat.state}"></td>
+            <td th:text="${LocationStat.country}"></td>
+            <td th:text="${LocationStat.latestTotalCases}">0</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 

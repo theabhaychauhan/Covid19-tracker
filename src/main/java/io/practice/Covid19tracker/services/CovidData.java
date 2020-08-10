@@ -43,7 +43,6 @@ public class CovidData {
             locationStat.setState(record.get("Province/State"));
             locationStat.setCountry(record.get("Country/Region"));
             locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size() - 1)));
-            System.out.println(locationStat);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
